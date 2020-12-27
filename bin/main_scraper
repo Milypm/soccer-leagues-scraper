@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/webscraper'
+
+new_scrape = Scraping.new
+new_scrape.check_url
+new_scrape.match_url
+
+def valid_opt?(option)
+  if option == 'P' || option == 'A' || option == 'B'
+    return true
+  elsif option == 'W' || option == 'E'
+    return true
+  else
+    return false
+  end
+end
+
+def prompt_user(usr_pick)
+  loop do
+    print 'Which league(s) do you want to see? '
+    new_scrape.option = gets.chomp.upcase
+    if valid_opt?(new_scrape.option)
+      new_scrape.option = gets.chomp.upcase
+    break
+    else
+      puts 'Invalid option, please try again with one of the letters above: '
+    end
+  end
+end
+
+puts ''
+puts "TOP 5 TEAMS EUROPE'S SOCCER LEAGUES: Premier, Serie A, Bundesliga"
+puts 'Select one letter from the options below:'
+puts 'P for Premier League'
+puts 'A for Serie A'
+puts 'B for Bundesliga'
+puts 'W for ALL the leagues'
+puts 'E to Exit'
+puts ''
+prompt_user(option)
