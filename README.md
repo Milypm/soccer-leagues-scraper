@@ -6,12 +6,12 @@ Scraper program that works in the terminal to fetch and display the top position
 
 > In this project I created a web scraper program to parse HTML documents.
 The websites that are used for the project are:
-[Premier League](https://www.espn.com/soccer/table/_/league/eng.1)
-[Serie A](https://www.espn.com/soccer/table/_/league/ita.1)
-[Bundesliga](https://www.espn.com/soccer/table/_/league/ger.1)
-The final output is a list with the top five teams (based on the specified league from the given menu), current total points by team, and the specific URL at the end of the list.
-It is made to run on the terminal/command line.
-The 'main_scraper' file is executable, so it can run easily.
+- [Premier League](https://www.espn.com/soccer/table/_/league/eng.1)
+- [Serie A](https://www.espn.com/soccer/table/_/league/ita.1)
+- [Bundesliga](https://www.espn.com/soccer/table/_/league/ger.1)
+> The final output is a list with the top five teams (based on the specified league from the given menu), current total points by team, and the specific URL at the end of the list.
+- It is made to run on the terminal/command line.
+- The 'main_scraper' file is executable, so it can run easily.
 
 ## Examples
 ![img_1](./images/web-scraper1.png)
