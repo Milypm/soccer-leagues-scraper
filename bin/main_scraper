@@ -1,41 +1,65 @@
 #!/usr/bin/env ruby
-
 require_relative '../lib/webscraper'
 
-new_scrape = Scraping.new
-new_scrape.check_url
-new_scrape.match_url
+def display_options
+  puts ''
+  puts "TOP 5 TEAMS 2020-21: Premier League, Serie A, Bundesliga"
+  puts 'p for Premier League'
+  puts 'a for Serie A'
+  puts 'b for Bundesliga'
+  puts 'm for Menu'
+  puts 'e to Exit'
+end
 
 def valid_opt?(option)
-  if option == 'P' || option == 'A' || option == 'B'
-    return true
-  elsif option == 'W' || option == 'E'
-    return true
-  else
-    return false
-  end
+  return true if option === 'p' || option === 'a' || option === 'b'
+  return true if option === 'e' || option === 'm'
+  false
 end
 
-def prompt_user(usr_pick)
-  loop do
-    print 'Which league(s) do you want to see? '
-    new_scrape.option = gets.chomp.upcase
-    if valid_opt?(new_scrape.option)
-      new_scrape.option = gets.chomp.upcase
-    break
-    else
-      puts 'Invalid option, please try again with one of the letters above: '
+def display_menu
+  exit_app = false
+  until exit_app
+    display_options
+    puts ''
+    loop do
+      print 'Select an option: '
+      option = gets.chomp.downcase
+      if valid_opt?(option)
+        if option == 'p'
+          new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/eng.1')
+          puts ''
+          puts 'English Premier League:'.red
+          new_scraping.match_url
+          new_scraping.print_league
+          puts ''
+        elsif option == 'a'
+          new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/ita.1')
+          puts ''
+          puts 'Italian Serie A:'.blue
+          new_scraping.match_url
+          new_scraping.print_league
+          puts ''
+        elsif option == 'b'
+          new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/ger.1')
+          puts ''
+          puts 'German Bundesliga:'.yellow
+          new_scraping.match_url
+          new_scraping.print_league
+          puts ''
+        elsif option == 'm'
+          break
+        else
+          puts 'Thanks for using soccer-leagues-scraper!'
+          exit_app = true
+        end
+      break
+      else
+        puts 'Invalid option, please try again with one of the letters above'
+        puts ''
+      end
     end
+    puts ''
   end
 end
-
-puts ''
-puts "TOP 5 TEAMS EUROPE'S SOCCER LEAGUES: Premier, Serie A, Bundesliga"
-puts 'Select one letter from the options below:'
-puts 'P for Premier League'
-puts 'A for Serie A'
-puts 'B for Bundesliga'
-puts 'W for ALL the leagues'
-puts 'E to Exit'
-puts ''
-prompt_user(option)
+display_menu

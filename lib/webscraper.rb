@@ -1,41 +1,30 @@
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
 
 # Fetch and parse HTML document
 class Scraping
-  attr_reader :option
-  # attr_accessor :league, :position, :team, :points
+  attr_reader :url
 
-  def initialize(option)
-    @option = option
+  def initialize(in_url)
+    @url = in_url
+    @doc = Nokogiri::HTML(URI.open(@url))
   end
 
-  def check_url(option)
-    if @option == 'p'
-      url_league = 'https://www.espn.com/soccer/table/_/league/eng.1'
-    elsif @option == 'a'
-      url_league = 'https://www.espn.com/soccer/table/_/league/ita.1'
-    elsif @option == 'b'
-      url_league = 'https://www.espn.com/soccer/table/_/league/ger.1'
-    end
-    url_league
+  def print_league
+    @all_teams.each { |k, v| puts "#{k}. #{v[0]}....Total Points: #{v[1]}" }
+    puts "URL: #{@url}"
   end
 
-  def match_url(url_league)
-    @doc = Nokogiri::HTML(URI.open(@url_league))
-    @league = @doc.html('.Table_Title')
-    @position = @doc.html('.team_position')
-    @span = @doc.at('abbr').first
-    @team = span.attr('title')
-    @points = @doc.html('stat-cell')
-  end
-
-  def display_league(league, position, team, points)
-    total_list = 5
-    i = 1
-    puts "#{league}"
-    while i <= TOTAL_LIST
-      puts "#{position}. #{team} Points: #{points}"
+  def match_url
+    @all_teams = Hash.new { |k, v| k[v] = [] }
+    get_title = 0
+    get_points = 7
+    5.times do
+      @all_teams[(get_title + 1)] << @doc.css('abbr')[get_title]['title']
+      @all_teams[(get_title + 1)] << @doc.css('.stat-cell')[get_points].text
+      get_title += 1
+      get_points += 8
     end
   end
 end
