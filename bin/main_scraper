@@ -57,8 +57,7 @@ def display_menu
         end
         break
       else
-        puts "Invalid option, please try again with one of the
-         letters above\n\n".red
+        puts "Invalid option, please try again with one of the letters above\n\n".red
       end
     end
     puts ''

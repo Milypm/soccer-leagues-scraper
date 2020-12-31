@@ -17,6 +17,7 @@ The websites that are used for the project are:
 ![img_1](./images/web-scraper1.png)
 ![img_2](./images/web-scraper3.png)
 ![img_3](./images/web-scraper3.png)
+![img_4](./images/web-scraper4.png)
 
 ## Built With
 - Ruby (v. 2.7.0)
