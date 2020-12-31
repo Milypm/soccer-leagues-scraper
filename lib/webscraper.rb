@@ -12,7 +12,7 @@ class Scraping
   end
 
   def print_league
-    @all_teams.each { |k, v| puts "#{k}. #{v[0]}....Total Points: #{v[1]}" }
+    @all_teams.each { |k, v| puts "#{k}. #{v[0]}....Total Points: #{v[1]}\n\n" }
     puts "URL: #{@url}"
   end
 

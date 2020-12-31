@@ -58,4 +58,4 @@ Visit [issues' section](https://github.com/Milypm/soccer-leagues-scraper/issues)
 Give a :star2: if you like this project!
 
 ## License
-This project is [MIT](https://github.com/Milypm/Ruby_OOP_TicTacToe/blob/develop/LICENSE) licensed.
+This project is [MIT](https://github.com/Milypm/soccer-leagues-scraper/blob/main/LICENSE) licensed.
