@@ -14,7 +14,7 @@ describe Scraping do
     it 'return true if the size of hash is equal to 5' do
       new_scraping
       new_scraping.match_url
-      all_teams.size == 5
+      all_teams.size = 5
       expect(new_scraping.match_url).to be_truthy
     end
   end
