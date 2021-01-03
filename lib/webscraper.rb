@@ -4,14 +4,15 @@ require 'colorize'
 
 # Fetch and parse HTML document
 class Scraping
-  attr_reader :url
-
-  def initialize(in_url)
-    @url = in_url
+  attr_reader :url, :option
+  def initialize(url, option)
+    @url = url
+    @option = option
     @doc = Nokogiri::HTML(URI.open(@url))
   end
 
   def print_league
+    print_title(option)
     @all_teams.each { |k, v| puts "#{k}. #{v[0]}....Total Points: #{v[1]}\n\n" }
     puts "URL: #{@url}"
   end
@@ -26,5 +27,13 @@ class Scraping
       get_title += 1
       get_points += 8
     end
+  end
+
+  private
+
+  def print_title(option)
+    puts "English Premier League:\n".blue.bold if option == 'p'
+    puts "Italian Serie A:\n".blue.bold if option == 'a'
+    puts "German Bundesliga:\n".blue.bold if option == 'b'
   end
 end

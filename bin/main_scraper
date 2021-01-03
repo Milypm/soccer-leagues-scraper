@@ -1,72 +1,28 @@
 #!/usr/bin/env ruby
 require_relative '../lib/webscraper'
+require_relative '../lib/helper_methods'
 require 'colorize'
-require 'colorized_string'
-
-def display_options
-  puts ''
-  puts "TOP 5 TEAMS 2020-21: Premier League, Serie A, Bundesliga\n".green.bold
-  puts "p for English Premier League\n\n"
-  puts "a for Italian Serie A\n\n"
-  puts "b for German Bundesliga\n\n"
-  puts "m for Menu\n\n"
-  puts "e to Exit\n\n"
-end
-
-def valid_opt?(option)
-  return true if %w[p a b e m].include?(option)
-
-  false
-end
-
-def match_print_eng
-  new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/eng.1')
-  puts ''
-  puts "English Premier League:\n".blue.bold
-  new_scraping.match_url
-  new_scraping.print_league
-end
-
-def match_print_ita
-  new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/ita.1')
-  puts ''
-  puts "Italian Serie A:\n".blue.bold
-  new_scraping.match_url
-  new_scraping.print_league
-end
-
-def match_print_ger
-  new_scraping = Scraping.new('https://www.espn.com/soccer/table/_/league/ger.1')
-  puts ''
-  puts "German Bundesliga:\n".blue.bold
-  new_scraping.match_url
-  new_scraping.print_league
-end
 
 exit_app = false
 until exit_app
-  display_options
   puts ''
+  puts display_options
   loop do
-    print 'Select an option: '
+    print 'Select an option: '.green
     option = gets.chomp.downcase
     if valid_opt?(option)
-      if option == 'p'
-        match_print_eng
-      elsif option == 'a'
-        match_print_ita
-      elsif option == 'b'
-        match_print_ger
-      elsif option == 'm'
+      if option == 'm'
         break
-      else
+      elsif option == 'e'
         puts 'Thanks for using soccer-leagues-scraper!'.bold
         exit_app = true
+      else
+        puts ''
+        match_scrape(option)
       end
       break
     else
-      puts "Invalid option, please try again with one of the letters above\n\n"
-        .red
+      puts "Invalid option, please try again with another letter\n".red
     end
   end
   puts ''
