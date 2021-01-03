@@ -11,16 +11,15 @@ until exit_app
     print 'Select an option: '.green
     option = gets.chomp.downcase
     if valid_opt?(option)
-      break if option == 'm'
-
-      elsif option == 'e'
+      if option == 'e'
         puts 'Thanks for using soccer-leagues-scraper!'.bold
         exit_app = true
+      elsif option == 'm'
+        break
       else
         puts ''
         match_scrape(option)
       end
-      
       break
     else
       puts "Invalid option, please try again with another letter\n".red
