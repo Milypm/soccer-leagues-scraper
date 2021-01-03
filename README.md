@@ -31,11 +31,11 @@ The websites that are used for the project are:
 - Colorize gem
  
 ## Setup
-For installing Nokogiri / RSpec:
-From the project's root directory, execute 'bundle' to install Nokogiri and RSpec:
+- For installing Nokogiri / RSpec:
+- From the project's root directory, execute 'bundle' to install Nokogiri and RSpec:
 - Type: 'bundle install'
-For installing colorize gem:
-On the command line/terminal:
+- For installing colorize gem:
+- On the command line/terminal:
 - Type: 'gem install colorize'
  
 ## How to run it
