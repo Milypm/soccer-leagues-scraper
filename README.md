@@ -39,7 +39,6 @@ On the command line/terminal:
 - Type: 'gem install colorize'
  
 ## How to run it
-To get a local copy up and running follow these simple steps:
 * It's recommended to use Git's latest version.
 * Clone or download the repo from here [soccer-leagues-scraper](https://github.com/Milypm/soccer-leagues-scraper.git) on your local system.
 * Unzip/Open the root folder, on the command line/terminal:
@@ -48,7 +47,7 @@ To get a local copy up and running follow these simple steps:
  
 ## Testing with RSpec
 - Verify that you have RSpec installed: go to the Terminal/Command line and type: 'rspec -v' or 'rspec --version'.
-- To install Rspec: go to the Terminal/Command line and type: 'gem install rspec', you can now verify the version installed with 'rspec -v' or 'rspec --version'.
+- To install Rspec: go to 'Setup' section above.
 - Open the root directory for this repository ('soccer-leagues-scraper'):
    Type: rspec
  
