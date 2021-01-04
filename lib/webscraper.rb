@@ -8,7 +8,7 @@ class Scraping
   def initialize(url, option)
     @url = url
     @option = option
-    @doc = Nokogiri::HTML(URI.open(@url))
+    @doc = Nokogiri::HTML(URI.parse(@url).open)
   end
 
   def print_league

@@ -26,23 +26,20 @@ The websites that are used for the project are:
 - Ruby (v. 2.7.0)
 - Rubocop
 - Git
-- RSpec
+- RSpec gem
 - Nokogiri gem (v. 1.10.10)
 - Colorize gem
  
 ## Setup
-- For installing Nokogiri / RSpec:
-- From the project's root directory, execute 'bundle' to install Nokogiri and RSpec:
+- For installing Nokogiri / RSpec / colorize gems:
+- From the project's root directory, execute 'bundle':
 - Type: 'bundle install'
-- For installing colorize gem:
-- On the command line/terminal:
-- Type: 'gem install colorize'
  
 ## How to run it
 * It's recommended to use Git's latest version.
 * Clone or download the repo from here [soccer-leagues-scraper](https://github.com/Milypm/soccer-leagues-scraper.git) on your local system.
 * Unzip/Open the root folder, on the command line/terminal:
-- Type: main_scraper
+- Type: bin/main_scraper
 - The program (scraper) should display now on the terminal.
  
 ## Testing with RSpec
