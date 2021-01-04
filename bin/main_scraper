@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require_relative '../lib/webscraper'
+require_relative '../lib/helper_methods'
+require 'colorize'
+
+exit_app = false
+until exit_app
+  puts ''
+  puts display_options
+  loop do
+    print 'Select an option: '.green
+    option = gets.chomp.downcase
+    if valid_opt?(option)
+      if option == 'e'
+        puts 'Thanks for using soccer-leagues-scraper!'.bold
+        exit_app = true
+      elsif option == 'm'
+        break
+      else
+        puts ''
+        tmp = match_scrape(option)
+        puts tmp['title']
+        puts tmp['result']
+        puts tmp['url']
+      end
+      break
+    else
+      puts "Invalid option, please try again with another letter\n".red
+    end
+  end
+  puts ''
+end
