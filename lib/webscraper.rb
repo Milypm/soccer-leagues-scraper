@@ -15,7 +15,7 @@ class Scraping
     result = ''
     title = print_title(option)
     @all_teams.each { |k, v| result << "#{k}. #{v[0]}....Total Points: #{v[1]}\n\n" }
-    { "title" => title, "result" => result, "url" => "URL: #{@url}" }
+    { 'title' => title, 'result' => result, 'url' => "URL: #{@url}" }
   end
 
   def match_url
