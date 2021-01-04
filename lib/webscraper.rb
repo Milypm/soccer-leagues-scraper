@@ -12,9 +12,10 @@ class Scraping
   end
 
   def print_league
-    print_title(option)
-    @all_teams.each { |k, v| puts "#{k}. #{v[0]}....Total Points: #{v[1]}\n\n" }
-    puts "URL: #{@url}"
+    result = ''
+    title = print_title(option)
+    @all_teams.each { |k, v| result << "#{k}. #{v[0]}....Total Points: #{v[1]}\n\n" }
+    { "title" => title, "result" => result, "url" => "URL: #{@url}" }
   end
 
   def match_url
@@ -32,8 +33,10 @@ class Scraping
   private
 
   def print_title(option)
-    puts "English Premier League:\n".blue.bold if option == 'p'
-    puts "Italian Serie A:\n".blue.bold if option == 'a'
-    puts "German Bundesliga:\n".blue.bold if option == 'b'
+    title = ''
+    title << "English Premier League:\n".blue.bold if option == 'p'
+    title << "Italian Serie A:\n".blue.bold if option == 'a'
+    title << "German Bundesliga:\n".blue.bold if option == 'b'
+    title
   end
 end

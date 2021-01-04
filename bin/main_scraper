@@ -18,7 +18,10 @@ until exit_app
         break
       else
         puts ''
-        match_scrape(option)
+        tmp = match_scrape(option)
+        puts tmp['title']
+        puts tmp['result']
+        puts tmp['url']
       end
       break
     else
